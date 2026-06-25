@@ -5,7 +5,6 @@ export function renderWeather(weather : Weather) : void{
 
     if(!weatherContainer) return;
         weatherContainer.innerHTML = `
-            <h2>🌤 Weather</h2>
 
         <p>
             Temperature:

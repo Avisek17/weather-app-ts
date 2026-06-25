@@ -1,13 +1,16 @@
-export function renderNews(news) {
-    const newsContainer = document.getElementById("news");
-    if (!newsContainer)
-        return;
+import { setContent } from "../ui/contentUi.js";
+import { getNews } from "../api/news.js";
+export async function handleNewsClick() {
+    const news = await getNews();
     const html = news
         .slice(0, 10)
         .map(article => `
-                <div class="news-article">
 
-                    <h3>${article.title}</h3>
+                <div>
+
+                    <h3>
+                        ${article.title}
+                    </h3>
 
                     <a
                         href="${article.url}"
@@ -17,12 +20,14 @@ export function renderNews(news) {
 
                     </a>
 
-                    <hr>
-
                 </div>
+
             `)
         .join("");
-    newsContainer.innerHTML = `
+    setContent(`
+
+
         ${html}
-    `;
+
+    `);
 }

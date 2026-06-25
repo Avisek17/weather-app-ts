@@ -33,7 +33,6 @@ export function renderNews(
         .join("");
 
     newsContainer.innerHTML = `
-        <h2>📰 Nepali News</h2>
         ${html}
     `;
 }

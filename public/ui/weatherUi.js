@@ -3,7 +3,6 @@ export function renderWeather(weather) {
     if (!weatherContainer)
         return;
     weatherContainer.innerHTML = `
-            <h2>🌤 Weather</h2>
 
         <p>
             Temperature:

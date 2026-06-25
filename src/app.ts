@@ -1,11 +1,7 @@
-import {getCurrentLocation} from "./services/location.js";
-import {getWeather} from "./api/weather.js";
-import {renderWeather} from "./ui/weatherUi.js";
 import { initializeTheme , toggleTheme} from "./services/theme.js";
-import { reverseGeocode } from "./api/geocode.js";
-import { renderLocation } from "./ui/locationUi.js";
-import { getNews } from "./api/news.js";
-import { renderNews } from "./ui/newsui.js";
+import { handleLocationClick } from "./handlers/locationHandler.js";
+import { handleWeatherClick } from "./handlers/weatherHandler.js";
+import { handleNewsClick } from "./handlers/newsHandler.js";
 
 async function init() {
     initializeTheme();
@@ -19,34 +15,32 @@ async function init() {
     toggleTheme
 );
     try {
+document
+    .getElementById(
+        "location-btn"
+    )
+    ?.addEventListener(
+        "click",
+        handleLocationClick
+    );
 
-        const coords =
-            await getCurrentLocation();
+document
+    .getElementById(
+        "weather-btn"
+    )
+    ?.addEventListener(
+        "click",
+        handleWeatherClick
+    );
 
-            // console.log(coords);
-
-        const locaton = await reverseGeocode(
-            coords.lat,
-            coords.lon
-        );
-
-        renderLocation(locaton);
-        console.log(locaton);
-      
-        const weather = await getWeather(
-            coords.lat,
-            coords.lon
-        );
-        
-        renderWeather(weather);
-        console.log(weather);
-
-        const news = await getNews();
-        console.log("Rendering News...");
-        renderNews(news);
-        console.log(news);
-
-
+document
+    .getElementById(
+        "news-btn"
+    )
+    ?.addEventListener(
+        "click",
+        handleNewsClick
+    );
 
 }
 catch (error) {
@@ -57,4 +51,3 @@ catch (error) {
     }
 }
 init();
-

@@ -7,7 +7,7 @@ export function renderLocation(
 
     if(!locationElement) return;
 
-    locationElement.innerHTML = `<h2> Location </h2>
+    locationElement.innerHTML = `
     <p> City: ${location.city} </p>
     <p> Country: ${location.country} </p>
     <p>Date & Time: ${new Date().toLocaleString()}</p>`;
