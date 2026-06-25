@@ -1,22 +1,39 @@
-import { News } from '../types/news.js';
+import { News } from "../types/news.js";
 
-export async function renderNews(news: News[]):Promise<void> {
-    const newsContainer = document.getElementById('news');
+export function renderNews(
+    news: News[]
+): void {
+
+    const newsContainer =
+        document.getElementById("news");
+
     if (!newsContainer) return;
 
-        const html = news.map((article)=>`
-        <div class="news-article">
-           <a
-                href="${article.url}"
-                target="_blank">
-                ${article.title}
-            </a>
-            <P>
-            Author: ${article.by}
-            </P>
-        </div>`
-    ).join('');
+    const html = news
+        .slice(0, 10)
+        .map(
+            article => `
+                <div class="news-article">
 
-    newsContainer.innerHTML = `<h2>📰 News</h2>${html}`;
+                    <h3>${article.title}</h3>
 
+                    <a
+                        href="${article.url}"
+                        target="_blank">
+
+                        Read More
+
+                    </a>
+
+                    <hr>
+
+                </div>
+            `
+        )
+        .join("");
+
+    newsContainer.innerHTML = `
+        <h2>📰 Nepali News</h2>
+        ${html}
+    `;
 }
