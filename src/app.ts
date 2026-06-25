@@ -4,7 +4,8 @@ import {renderWeather} from "./ui/weatherUi.js";
 import { initializeTheme , toggleTheme} from "./services/theme.js";
 import { reverseGeocode } from "./api/geocode.js";
 import { renderLocation } from "./ui/locationUi.js";
-
+import { getNews } from "./api/news.js";
+import { renderNews } from "./ui/newsui.js";
 
 async function init() {
     initializeTheme();
@@ -39,6 +40,12 @@ async function init() {
         
         renderWeather(weather);
         console.log(weather);
+
+        const news = await getNews();
+        console.log("Rendering News...");
+        renderNews(news);
+        console.log(news);
+
 
 
 }

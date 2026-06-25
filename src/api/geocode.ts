@@ -6,11 +6,7 @@ export async function reverseGeocode(
 ) {
 
     const response =
-    await fetch(
-
-`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
-
-    );
+    await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
 
     if (!response.ok) {
 
