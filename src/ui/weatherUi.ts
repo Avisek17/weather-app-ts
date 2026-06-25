@@ -18,7 +18,7 @@ export function renderWeather(weather : Weather) : void{
         </p>
 
         <p>
-            Wind:
+            Wind Speed:
             ${weather.current.wind_speed_10m} km/h
         </p>`
 }
