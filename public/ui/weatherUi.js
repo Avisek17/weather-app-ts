@@ -1,5 +1,5 @@
-export function displayWeather(weather) {
-    const weatherContainer = document.getElementById('weather-container');
+export function renderWeather(weather) {
+    const weatherContainer = document.getElementById('weather');
     if (!weatherContainer)
         return;
     weatherContainer.innerHTML = `
@@ -7,16 +7,16 @@ export function displayWeather(weather) {
 
         <p>
             Temperature:
-            ${weather.current.temperature} °C
+            ${weather.current.temperature_2m} °C
         </p>
 
         <p>
             Humidity:
-            ${weather.current.relativeHumidity} %
+            ${weather.current.relative_humidity_2m} %
         </p>
 
         <p>
             Wind:
-            ${weather.current.windSpeed} km/h
+            ${weather.current.wind_speed_10m} km/h
         </p>`;
 }

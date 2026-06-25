@@ -1,7 +1,8 @@
-export interface Weather {
+export interface Weather { 
     current: {
-        temperature: number;
-        relativeHumidity: number;
-        windSpeed: number;
+        temperature_2m: number;
+        relative_humidity_2m: number;
+        wind_speed_10m: number;
+
     }
 }
