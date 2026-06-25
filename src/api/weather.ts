@@ -1,6 +1,6 @@
 import { Weather } from '../types/weather';
 
-export async function getWeather(lat:latitude , lon: longitude ): Promise <Weather> {
+export async function getWeather(lat:number , lon: number ): Promise <Weather> {
     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m`);
 
     if(!response.ok){

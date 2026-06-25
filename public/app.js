@@ -1,7 +1,8 @@
 import { getCurrentLocation } from "./services/location.js";
 import { getWeather } from "./api/weather.js";
-import { displayWeather } from "./ui/weatherUi.js";
 import { initializeTheme, toggleTheme } from "./services/theme.js";
+import { reverseGeocode } from "./api/geocode.js";
+import { renderLocation } from "./ui/locationUi.js";
 async function init() {
     initializeTheme();
     const themeBtn = document.querySelector("#themeBtn");
@@ -9,12 +10,15 @@ async function init() {
     try {
         const coords = await getCurrentLocation();
         console.log(coords);
-        const weather = await getWeather(coords.latitude, coords.longitude);
-        console.log(weather);
-        displayWeather(weather);
+        const locaton = await reverseGeocode(coords.lat, coords.lon);
+        renderLocation(locaton);
+        console.log(locaton);
+        const [weather] = await Promise.all([
+            getWeather(coords.lat, coords.lon)
+        ]);
     }
     catch (error) {
-        console.error(error);
+        console.error("Error initializing app:", error);
     }
 }
 init();

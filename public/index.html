@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
         content="width=device-width, initial-scale=1.0">
 
     <title>
-        Location Dashboard
+        Smart Location Dashboard
     </title>
 
     <link
@@ -17,36 +18,105 @@
         href="../src/styles/styles.css">
 
 </head>
+
 <body>
 
-<header>
+    <header class="header">
 
-    <h1>
-        Location Dashboard
-    </h1>
+        <h1>
+            🌍 Smart Location Dashboard
+        </h1>
 
-    <button id="themeBtn">
-        🌙
-    </button>
+        <button id="themeBtn">
+            🌙
+        </button>
 
-</header>
+    </header>
 
-<main>
+    <main class="dashboard">
 
-    <section
-        id="weather"
-        class="card">
+        <!-- Location Card -->
+        <section
+            id="location"
+            class="card">
 
-        Loading weather...
+            <h2>
+                📍 Location
+            </h2>
 
-    </section>
+            <p>
+                Loading location...
+            </p>
 
-</main>
+        </section>
 
-<script
-    type="module"
-    src="app.js">
-</script>
+        <!-- Weather Card -->
+        <section
+            id="weather"
+            class="card">
+
+            <h2>
+                🌤 Weather
+            </h2>
+
+            <p>
+                Loading weather...
+            </p>
+
+        </section>
+
+        <!-- Country Card -->
+        <section
+            id="country"
+            class="card">
+
+            <h2>
+                🌎 Country
+            </h2>
+
+            <p>
+                Coming Soon...
+            </p>
+
+        </section>
+
+        <!-- News Card -->
+        <section
+            id="news"
+            class="card">
+
+            <h2>
+                📰 News
+            </h2>
+
+            <p>
+                Coming Soon...
+            </p>
+
+        </section>
+
+        <!-- Clock Card -->
+        <section
+            id="clock"
+            class="card">
+
+            <h2>
+                ⏰ Local Time
+            </h2>
+
+            <p>
+                Coming Soon...
+            </p>
+
+        </section>
+
+    </main>
+
+    <script
+        type="module"
+        src="./app.js">
+    </script>
 
 </body>
+
 </html>
